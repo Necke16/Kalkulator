@@ -1,5 +1,8 @@
 console.log("Javascript Calculator")
 
+var restart = false;
+console.log(restart);
+
 document.getElementById('answer').readOnly = true;
 let screen = document.getElementById('answer');
 buttons = document.querySelectorAll('button');
@@ -18,6 +21,7 @@ for (item of buttons) {
         }
         else if (buttonText == '=') {
             screen.value = eval(screenValue);
+            var restart = true;
         }
         else {
             screenValue += buttonText;
@@ -26,6 +30,13 @@ for (item of buttons) {
 
     })
 }
+
+console.log(restart);
+
+if (restart == true) {
+    screenValue = buttonText;
+}
+
 
 document.addEventListener("keydown", function(event) {
     console.log(event.which);
